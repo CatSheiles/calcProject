@@ -1,0 +1,91 @@
+/*design brief with pix drawing to provided a calculator to these specs - colour preference
+ size 400px wide, functions basic addition, subtraction, divide, multiply*/
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/*setting size to meet the 400px specs*/
+.wrapper {
+    width: 400px;
+    background-color: black;
+    color: white;
+}
+
+.calc-button-row {
+/*adding flexbox to calc buttons*/   
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: 0.5%; /*horizontal lines between buttons*/
+}
+
+/*output screen - where calcs show, align rhs*/
+.screen {
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+    /*space in screen 20px top/bottom, 5px left/right*/
+    padding: 20px 5px;
+    font-size: 40px;
+}
+
+.calc-button {
+    background-color: #d8d9bd;
+    text-color: black;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+    font-weight: bold;
+  /*working on size&format of buttons you could use padding or change height & flexbasis is width as below*/
+    height: 100px;
+    flex-basis: 24.5%;
+}
+
+.calc-button:hover {
+    background-color: #ebebeb;
+}
+calc-button:active {
+    background-color: #bbbcbe;
+}
+
+/*expansion design for double&triple buttons making them wider
+   take regular calc-button and double/triple flex-basis size*/
+.double {
+    flex-basis: 49.7%
+}
+.triple {
+    flex-basis: 74.8%   
+}
+
+/*changing function buttons to different colour use seudo last child function*/
+.calc-button:last-child {
+    background-color: #df974c;
+    color: white;
+}
+
+.calc-button:last-child:hover {
+    background-color: #dfb07e;
+    }
+.calc-button:last-child:active {
+    background-color: #dd8d37;
+    }   
+
+
+/* Colors and functions client would like in this design include:
+- black: #000000
+- white: #ffffff
+- light grey: #d8d9db
+- buttons on hover: #ebebeb
+- button active state: #bbbcbe
+- function buttons: #df974c
+- function buttons on hover: #dfb07e
+- function button active state: #dd8d37*/
+
+/*research note to self-formula for special ascci characters from
+https://www.toptal.com/designers/htmlarrows/math/*/
