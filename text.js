@@ -27,7 +27,18 @@ function handleSymbol(symbol){
             buffer = '0';
             runningTotal = 0;
             break; 
-        case '+':
+        case '=':
+            if (previousOperator === null) {
+                //so above is user hasn't entered anything yet - so screen is null
+                //you need two numbers to do math
+            return;
+            }
+            flushOperation(parseInt(buffer)); //this does the math part of equal
+            previousOperator = null; //clear the button out after
+            buffer = runningTotal;
+            runningTotal = 0; //after math is done reassign to zero
+            break;
+        case '+': //note these need to be the signs not the &plus that is in the html
         case '−':
         case '×':
         case '÷':
