@@ -38,6 +38,13 @@ function handleSymbol(symbol){
             buffer = runningTotal;
             runningTotal = 0; //after math is done reassign to zero
             break;
+        case '←': //tip copy and paste symbols from the DOM
+            if(buffer.length === 1){ //backspace 1 character
+                buffer = '0';
+            }else {
+                buffer = buffer.substring(0, buffer.length - 1); //-1 is stop 1 short of going all the way to the end
+            }
+            break;
         case '+': //note these need to be the signs not the &plus that is in the html
         case '−':
         case '×':
@@ -66,6 +73,7 @@ previousOperator = symbol;
 buffer = '0';
 
 } //end of handleMath part
+//js and decimals don't go well together and client didn't need so none included
 
 function flushOperation(intBuffer) {
     if (previousOperator === '+') {
@@ -85,7 +93,6 @@ function handleNumber(numberString){
     }else {
         buffer += numberString;
     }
-
 }
 
 //init just sets everything up so add it once and call later/see its called at bottom
@@ -95,9 +102,5 @@ function init () {
         buttonClick(event.target.innerText);
     })
 }
-
-
-
-
 
 init();
